@@ -1,0 +1,83 @@
+/* animation/ transition mixins */
+
+@mixin animation($animation-name)
+{
+	@-webkit-keyframes #{$animation-name}
+	{
+	 @content;
+	}
+	@-moz-keyframes #{$animation-name}
+	{
+	 @content;
+	}
+	@-o-keyframes #{$animation-name}
+	{
+	  @content;
+	}
+	@keyframes #{$animation-name}
+	{
+	  @content;
+	}
+}
+@mixin transition($args...)
+{
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+/* fonts mixins */
+
+@mixin font-face($font-name, $file-name, $weight: normal, $style: normal) {
+  @font-face {
+    font-family: quote($font-name);
+    src: url($file-name + '.eot');
+    src: url($file-name + '.eot?#iefix')  format('embedded-opentype'),
+         url($file-name + '.woff') format('woff'),
+         url($file-name + '.ttf')  format('truetype'),
+         url($file-name + '.svg##{$font-name}')  format('svg');
+    font-weight: $weight;
+    font-style: $style;
+  }
+ }
+
+@function calculateRem($size)
+{
+  $remSize: $size / 16;
+  @return #{$remSize}rem;
+}
+
+@mixin font-size($size)
+{
+  font-size: #{$size}px;
+  font-size: calculateRem($size);
+}
+
+/* triangle mixin*/
+
+@mixin triangle($direction: "right", $height: 100px, $width: 80px, $color: black) {
+  display: inline-block;
+  width: 0;
+	height: 0;
+  $baseWidth: $width;
+  $baseHeight: $height;
+  @if ($direction == "right") {
+    border-top: $baseHeight/2 solid transparent;
+	  border-bottom: $baseHeight/2 solid transparent;
+	  border-left: $baseWidth solid $color;
+  } @elseif ($direction == "left") {
+    border-top: $baseHeight/2 solid transparent;
+  	border-bottom: $baseHeight/2 solid transparent;
+	  border-right: $baseWidth solid $color;
+  } @elseif ($direction == "up") {
+    border-left: $baseWidth solid transparent;
+	  border-right: $baseWidth solid transparent;
+    border-bottom: $baseHeight solid $color;
+  } @elseif ($direction == "down") {
+    border-left: $baseWidth solid transparent;
+	  border-right: $baseWidth solid transparent;
+	  border-top: $baseHeight solid $color;
+  }
+}

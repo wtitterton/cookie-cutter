@@ -1,0 +1,138 @@
+/* buttons */
+
+/* button sizes */
+$btn-sizes: (
+  tiny:12,
+  sml:16,
+  md:20,
+  lrg:22,
+  massive:24,
+);
+
+@each $item, $size in $btn-sizes {
+  .btn-#{$item}
+  {
+    @include font-size($size);
+  }
+}
+
+  %btn,
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"]
+{
+  display: block;
+  min-width: 190px;
+  padding: 10px 30px;
+  margin: 5px 0;
+  color: #555;
+  text-align: center;
+  @include font-size(13);
+  letter-spacing: 1px;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: #e0e1e2;
+  border-radius: 4px;
+  border:none;
+  cursor: pointer;
+  @include transition(background .4s ease, color .4s ease);
+
+  &:hover
+  {
+    background:darken(#e0e1e2,10%);
+  }
+
+  &:focus
+  {
+    outline: none;
+  }
+
+  &:disabled
+  {
+    background:$disabled-color;
+    color:#333;
+  }
+  &:hover:disabled
+  {
+    background: darken($disabled-color,10%);
+  }
+}
+
+/* solid buttons */
+.btn-primary
+{
+  @extend %btn;
+  background: $primary-color;
+  color:#fff;
+  border:none;
+  box-shadow: 0px 3px 3px rgba(0,0,0,.2);
+  &:hover
+  {
+    background:darken($primary-color,10%);
+  }
+}
+
+.btn-secondary
+{
+  @extend %btn;
+  background:$secondary-color;
+  color:#fff;
+  border:none;
+  box-shadow: 0px 3px 3px rgba(0,0,0,.2);
+  &:hover
+  {
+    background:darken($secondary-color,10%);
+  }
+}
+
+/* button outline */
+%btn-outline
+{
+  display: block;
+  padding: 10px 30px;
+  margin: 5px 0;
+  color: #555;
+  text-align: center;
+  @include font-size(13);
+  letter-spacing: 1px;
+  text-decoration: none;
+  white-space: nowrap;
+  border-radius: 4px;
+  cursor: pointer;
+  background:transparent;
+  border:2px solid  #e0e1e2;
+  &:hover
+  {
+    background: #e0e1e2;
+  }
+}
+
+.btn-outline
+{
+  @extend %btn-outline;
+}
+
+.btn-outline-primary
+{
+  @extend %btn-outline;
+  border-color:$primary-color;
+  color:$primary-color;
+  &:hover
+  {
+    background:$primary-color;
+    color:#fff;
+  }
+}
+
+.btn-outline-secondary
+{
+  @extend %btn-outline;
+  border-color:$secondary-color;
+  color:$secondary-color;
+  &:hover
+  {
+    background:$secondary-color;
+    color:#fff;
+  }
+}

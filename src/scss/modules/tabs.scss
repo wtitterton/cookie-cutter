@@ -1,0 +1,73 @@
+/*Tabs component*/
+
+.tabs
+{
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tabs li
+{
+  text-align: center;
+  flex-grow: 1;
+  background:$primary-color;
+  padding: 10px 0;
+  margin: 0;
+  border-right:1px solid #d0c4c1;
+  cursor:pointer;
+  transition: background .2s ease-in;
+}
+.tabs li.active
+{
+    background:darken($primary-color,10%);
+    border:none;
+}
+
+.tabs li:last-child
+{
+  border-right:none;
+}
+.tabs li a
+{
+  text-decoration: none;
+  color:#fff;
+  text-align:center;
+  display: block;
+  transition: color .3s ease-in;
+}
+
+.tab-content
+{
+  display: none;
+}
+
+.tab-content.active
+{
+  display: block;
+  min-height: 100px;
+}
+/* tab animations */
+.tab-content.active.fade-in
+{
+  animation: fadein 1s;
+}
+
+.tab-content.active.scale
+{
+  animation: scale 1s;
+}
+
+@include animation(fadein)
+{
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@include animation(scale)
+{
+  from { transform: scale(0); }
+  to   { transform:scale(1); }
+}

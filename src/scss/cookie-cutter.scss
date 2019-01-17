@@ -1,0 +1,115 @@
+/* Base styles */
+/*
+  colors
+  #E8DAD7,232,218,215 gey color
+  #E38EA5,227,142,165 pinky color
+  #FA4288,250,66,136 pink
+  #AC7E64,172,126,100 brownish
+  #642224,100,34,36 dark
+
+*/
+@import '_variables';
+@import '_mixins';
+@import 'normalize';
+@import './base/helpers';
+@import './base/flexboxgrid';
+@import './base/base';
+@import './base/buttons';
+@import './base/inputs';
+// modules
+@import './modules/modal';
+@import './modules/tabs';
+@import './modules/accordion';
+
+/* lists */
+ul {
+  list-style: normal inside;
+}
+ol {
+  list-style: decimal inside; }
+ol, ul {
+  padding-left: 15px;
+  margin-top: 0; }
+ul ul,
+ul ol,
+ol ol,
+ol ul
+{
+  margin: 1.5rem 0 1.5rem 3rem;
+}
+li {
+  margin-bottom: 1rem; }
+
+.list-plain
+{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.list-horizontal li
+{
+  display: inline-block;
+}
+
+.list-item
+{
+  padding-right:12px;
+}
+
+/* nav item */
+.nav-item
+{
+  display: block;
+  padding: 5px 15px;
+  text-decoration: none;
+}
+
+/* text sizes  */
+.text-xs
+{
+  font-size: 0.75em;
+}
+
+.text-sm
+{
+  font-size: 0.875em;
+}
+
+.text-md
+{
+  font-size: 1.125em;
+}
+
+.text-lg
+{
+  font-size:1.5em;
+}
+/* utility classes */
+.text-center
+{
+  text-align:center;
+}
+.text-right
+{
+  text-align:center;
+}
+.text-left
+{
+  text-align:left;
+}
+
+/* components */
+
+/*
+  mobile menu
+  mega menu
+  fullscreen menu
+  dropdown menu
+  slider use slick for this
+  lightbox
+
+  modal
+  accordion
+  tabs
+*/
